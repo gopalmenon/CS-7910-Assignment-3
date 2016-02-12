@@ -1,0 +1,107 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Short Sectioned Assignment
+% LaTeX Template
+% Version 1.0 (5/5/12)
+%
+% This template has been downloaded from:
+% http://www.LaTeXTemplates.com
+%
+% Original author:
+% Frits Wenneker (http://www.howtotex.com)
+%
+% License:
+% CC BY-NC-SA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/)
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
+%----------------------------------------------------------------------------------------
+
+\documentclass[paper=a4, fontsize=11pt]{scrartcl} % A4 paper and 11pt font size
+
+\usepackage[T1]{fontenc} % Use 8-bit encoding that has 256 glyphs
+\usepackage{fourier} % Use the Adobe Utopia font for the document - comment this line to return to the LaTeX default
+\usepackage[english]{babel} % English language/hyphenation
+\usepackage{amsmath,amsfonts,amsthm} % Math packages
+
+\usepackage{sectsty} % Allows customizing section commands
+\usepackage[top=5em]{geometry}
+\allsectionsfont{\centering \normalfont\scshape} % Make all sections centered, the default font and small caps
+
+\usepackage{fancyhdr} % Custom headers and footers
+\pagestyle{fancyplain} % Makes all pages in the document conform to the custom headers and footers
+\fancyhead{} % No page header - if you want one, create it in the same way as the footers below
+\fancyfoot[L]{} % Empty left footer
+\fancyfoot[C]{} % Empty center footer
+\fancyfoot[R]{\thepage} % Page numbering for right footer
+\renewcommand{\headrulewidth}{0pt} % Remove header underlines
+\renewcommand{\footrulewidth}{0pt} % Remove footer underlines
+\setlength{\headheight}{5pt} % Customize the height of the header
+
+\numberwithin{equation}{section} % Number equations within sections (i.e. 1.1, 1.2, 2.1, 2.2 instead of 1, 2, 3, 4)
+\numberwithin{figure}{section} % Number figures within sections (i.e. 1.1, 1.2, 2.1, 2.2 instead of 1, 2, 3, 4)
+\numberwithin{table}{section} % Number tables within sections (i.e. 1.1, 1.2, 2.1, 2.2 instead of 1, 2, 3, 4)
+
+\setlength\parindent{0pt} % Removes all indentation from paragraphs - comment this line for an assignment with lots of text
+
+\usepackage{mathtools}
+\usepackage{amssymb}
+\usepackage{gensymb}
+\usepackage{chngcntr}
+\usepackage{csquotes}
+\usepackage{flexisym}
+
+\counterwithout{figure}{section}
+%----------------------------------------------------------------------------------------
+%	TITLE SECTION
+%----------------------------------------------------------------------------------------
+
+\newcommand{\horrule}[1]{\rule{\linewidth}{#1}} % Create horizontal rule command with 1 argument of height
+
+\title{	
+\normalfont \normalsize 
+\textsc{Utah State University, Computer Science Department} \\ [25pt] % Your university, school and/or department name(s)
+\horrule{0.5pt} \\[0.4cm] % Thin top horizontal rule
+\huge CS 7910 Computational Complexity\\Assignment 3 \\ % The assignment title
+\horrule{2pt} \\[0.5cm] % Thick bottom horizontal rule
+}
+
+\author{Gopal Menon} % Your name
+
+\date{\normalsize\today} % Today's date or a custom date
+
+\begin{document}
+
+\maketitle % Print the title
+
+\begin{enumerate}
+\item In class we have studied a polynomial-time reduction from 3SAT to Clique and a polynomial-time reduction from 3SAT to Independent Set. Give a polynomial-time reduction from Clique to Independent Set.\\
+
+The clique problem is that given a graph $G$ and an integer $k$, we need to find out if it is possible to create a graph $G_k$ with $k$ vertices where every vertex is connected to every other vertex through an edge. Such a graph that we construct is called a Clique. In order to construct an Independent Set (IS) from a Clique, we can construct a graph $G_k\textprime$ with equivalent vertices as in the Clique. However the graph we construct will not have any edges wherever the Clique will have edges. Since the clique will have edges between all vertices, the graph we construct will not have any edges at all. Since there will be no edges, the graph will become an IS.\\
+
+If the Clique $G_k$ has $k$ vertices, the graph $G_k\textprime$ we construct will have the same number of vertices. So we can create the graph in $O(n)$ time. Since we can construct the graph $G_k\textprime$ from the Clique $G_k$ in polynomial times, the reduction satisfies the first condition that it should be done in polynomial time.\\
+
+If $G_k$ is a Clique, the graph $G_k\textprime$ will not have any edges between its vertices and so it will be an IS. If the graph $G_k\textprime$ is an IS with no edges between its vertices, the equivalent graph $G_k$ will have an edge wherever one is missing in $G_k\textprime$. And so $G_k$ will be a Clique.\\
+
+So we have shown that $Clique \leq_P Independent \enspace Set$
+
+\item Given two undirected graphs $G_1$ and $G_2$, let $V_1$ and $V_2$ be the vertex sets of the two graphs, respectively. An isomorphism of $G_1$ and $G_2$ is a bijection between the vertex sets $V_1$ and $V_2$, $f : V_1 \rightarrow V_2$, such that any two vertices $u$ and $v$ of $G_1$ are adjacent in $G_1$ if and only if the two vertices $f(u)$ and $f(v)$ of $G_2$ are adjacent in $G_2$.\\Given two graphs $G_1$ and $G_2$, the graph isomorphism problem is to decide whether $G_1$ and $G_2$ are isomorphic.\\
+It is easy to show that the graph isomorphism problem is in $NP$ because given a bijection $f$ as a certificate, we can easily check whether the certificate is valid in polynomial time.\\
+However, it has been an open problem whether the graph isomorphism problem is in $P$ or in $NPC$. Recently Babai has made significant progress by providing a so-called \enquote{quasipolynomial- time} algorithm for this problem (you may find it in the following manuscript). The manuscript has been submitted to the 48th Annual Symposium on the Theory of Computing (STOC 2016) for review and the result will be known soon.\\
+Graph Isomorphism in Quasipolynomial Time, L. Babai, arXiv:1512.03547, 2016.\\In this exercise, we are considering a \enquote{slightly different} problem, called subgraph isomorphism. Recall that a graph $G\textprime$ is a subgraph of another graph $G$ if every vertex of $G\textprime$ is in $G$ and every edge of $G\textprime$ is also in $G$.\\
+Given two graphs $G_1$ and $G_2$, the subgraph isomorphism problem is to decide whether $G_2$ contains a subgraph $G\textprime$ that is isomorphic to $G_1$.\\
+Prove that the subgraph isomorphism problem is NP-Complete.\\
+\textbf{Note:} I will send you a hint about this problem on Monday. You may try to work on it before that.\\
+
+Let $G_1$ be a graph and let $G_{1_k}$ be a Clique that is a subgraph of $G_1$ with $k$ vertices. We know that to find out if such a subgraph exists or not is an NP-Complete problem.\\
+
+We can now reduce the Clique problem to the subgraph isomorphism problem. Construct a graph $G_2$ which has the same number of vertices as $G_1$ and the same edges between its corresponding vertices as $G_1$. The graphs $G_1$ and $G_2$ will be equivalent. Construct a $G_2$ subgraph $G\textprime$ that is equivalent to the clique $G_{1_k}$. Consider any two vertices in  $G\textprime$. Since $G\textprime$ is a Clique, the two vertices will be adjacent. The corresponding two vertices in Clique $G_{1_k}$ which is a subgraph of $G_1$ will also be adjacent. Consider any two vertices in $G_{1_k}$. They will be adjacent and the corresponding vertices in $G\textprime$, which is a subgraph of $G_2$ will also be adjacent. So we have shown that $G_2$ contains a subgraph $G\textprime$ that is isomorphic to $G_1$.
+
+The reduction from a Clique to a subgraph isomorphism problem can be done in time $O(\left | V \right | + \left | E \right| )$ where $V$ and $E$ are the vertex set and edge set of graph $G_1$. This is polynomial time.
+
+\end{enumerate}
+
+%----------------------------------------------------------------------------------------
+
+\end{document}
