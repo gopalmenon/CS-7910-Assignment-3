@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.5.24)  11 FEB 2016 23:38
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.5.24)  16 FEB 2016 15:20
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -941,10 +941,13 @@ Underfull \hbox (badness 10000) in paragraph at lines 85--86
 
  []
 
-LaTeX Font Info:    Font shape `T1/futs/bx/n' in size <10.95> not available
-(Font)              Font shape `T1/futs/b/n' tried instead on input line 97.
 
-Underfull \hbox (badness 10000) in paragraph at lines 89--98
+Underfull \hbox (badness 10000) in paragraph at lines 87--88
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 91--97
 
  []
 
@@ -952,28 +955,67 @@ Underfull \hbox (badness 10000) in paragraph at lines 89--98
 
 
 {/usr/local/texlive/2015/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
-Underfull \hbox (badness 10000) in paragraph at lines 99--100
+Underfull \hbox (badness 10000) in paragraph at lines 98--99
 
  []
 
-[2] (./HW3.aux) ) 
+
+Underfull \hbox (badness 10000) in paragraph at lines 100--101
+
+ []
+
+LaTeX Font Info:    Font shape `T1/futs/bx/n' in size <10.95> not available
+(Font)              Font shape `T1/futs/b/n' tried instead on input line 102.
+
+Underfull \hbox (badness 10000) in paragraph at lines 102--103
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 104--105
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 106--107
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 108--109
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 110--111
+
+ []
+
+
+Overfull \hbox (8.80905pt too wide) in paragraph at lines 112--113
+[]\T1/futs/m/n/10.95 Given a cer-tifi-cate for the spe-cial in-stance of the su
+b-graph iso-mor-phism prob-lem, $(\FML/futmi/m/it/10.95 G; G[]\T1/futs/m/n/10.9
+5 )$,
+ []
+
+[2] [3] (./HW3.aux) ) 
 Here is how much of TeX's memory you used:
- 13371 strings out of 493089
- 231288 string characters out of 6134842
+ 13367 strings out of 493089
+ 231253 string characters out of 6134842
  343338 words of memory out of 5000000
  16655 multiletter control sequences out of 15000+600000
- 76090 words of font info for 102 fonts, out of 8000000 for 9000
+ 74742 words of font info for 98 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 63i,10n,50p,10354b,295s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/local/texlive/2015/texmf-dist/fonts/enc/dvips/base/8r.en
-c}</usr/local/texlive/2015/texmf-dist/fonts/type1/public/fourier/fourier-ms.pfb
-></usr/local/texlive/2015/texmf-dist/fonts/type1/adobe/utopia/putb8a.pfb></usr/
-local/texlive/2015/texmf-dist/fonts/type1/adobe/utopia/putr8a.pfb></usr/local/t
-exlive/2015/texmf-dist/fonts/type1/adobe/utopia/putri8a.pfb>
-Output written on HW3.pdf (2 pages, 51980 bytes).
+ 63i,10n,50p,10354b,291s stack positions out of 5000i,500n,10000p,200000b,80000s
+{/usr/local/texlive/2015/texmf-dist/fonts/enc/dvips/base/8
+r.enc}</usr/local/texlive/2015/texmf-dist/fonts/type1/public/fourier/fourier-ms
+.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/adobe/utopia/putb8a.pfb></
+usr/local/texlive/2015/texmf-dist/fonts/type1/adobe/utopia/putr8a.pfb></usr/loc
+al/texlive/2015/texmf-dist/fonts/type1/adobe/utopia/putri8a.pfb>
+Output written on HW3.pdf (3 pages, 52439 bytes).
 PDF statistics:
- 28 PDF objects out of 1000 (max. 8388607)
- 19 compressed objects within 1 object stream
+ 31 PDF objects out of 1000 (max. 8388607)
+ 21 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 

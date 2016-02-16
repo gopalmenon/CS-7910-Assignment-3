@@ -78,28 +78,38 @@
 \begin{enumerate}
 \item In class we have studied a polynomial-time reduction from 3SAT to Clique and a polynomial-time reduction from 3SAT to Independent Set. Give a polynomial-time reduction from Clique to Independent Set.\\
 
-The clique problem is that given a graph $G$ and an integer $k$, we need to find out if it is possible to create a graph $G_k$ with $k$ vertices where every vertex is connected to every other vertex through an edge. Such a graph that we construct is called a Clique. In order to construct an Independent Set (IS) from a Clique, we can construct a graph $G_k\textprime$ with equivalent vertices as in the Clique. However the graph we construct will not have any edges wherever the Clique will have edges. Since the clique will have edges between all vertices, the graph we construct will not have any edges at all. Since there will be no edges, the graph will become an IS.\\
+The clique problem is that given a graph $G$ and an integer $k$, we need to find out if it is possible to create a subgraph $G_k$ with $k$ vertices where every vertex is connected to every other vertex through an edge. Such a graph that we construct is called a Clique.\\
 
-If the Clique $G_k$ has $k$ vertices, the graph $G_k\textprime$ we construct will have the same number of vertices. So we can create the graph in $O(n)$ time. Since we can construct the graph $G_k\textprime$ from the Clique $G_k$ in polynomial times, the reduction satisfies the first condition that it should be done in polynomial time.\\
+In order to construct an Independent Set (IS) from a Clique, we can construct a graph $G\textprime$ with equivalent vertices as in $G$. However the graph $G\textprime$ we construct will not have any edges wherever $G$ will have edges. And $G\textprime$ will have edges between nodes wherever $G$ does not have edges. Corresponding to subgraph $G_k$ of graph $G$, we can find the subgraph $G_k\textprime$ of graph $G\textprime$.\\
+
+If the graph $G$ has $n$ vertices, the graph $G\textprime$ we construct will have the same number of vertices. So we can create the graph in $O(n)$ time. Since we can construct the graph $G\textprime$ from $G$ in polynomial time, the reduction satisfies the first condition that it should be done in polynomial time.\\
 
 If $G_k$ is a Clique, the graph $G_k\textprime$ will not have any edges between its vertices and so it will be an IS. If the graph $G_k\textprime$ is an IS with no edges between its vertices, the equivalent graph $G_k$ will have an edge wherever one is missing in $G_k\textprime$. And so $G_k$ will be a Clique.\\
 
 So we have shown that $Clique \leq_P Independent \enspace Set$
 
-\item Given two undirected graphs $G_1$ and $G_2$, let $V_1$ and $V_2$ be the vertex sets of the two graphs, respectively. An isomorphism of $G_1$ and $G_2$ is a bijection between the vertex sets $V_1$ and $V_2$, $f : V_1 \rightarrow V_2$, such that any two vertices $u$ and $v$ of $G_1$ are adjacent in $G_1$ if and only if the two vertices $f(u)$ and $f(v)$ of $G_2$ are adjacent in $G_2$.\\Given two graphs $G_1$ and $G_2$, the graph isomorphism problem is to decide whether $G_1$ and $G_2$ are isomorphic.\\
+\item Given two undirected graphs $G_1$ and $G_2$, let $V_1$ and $V_2$ be the vertex sets of the two graphs, respectively. An isomorphism of $G_1$ and $G_2$ is a bijection between the vertex sets $V_1$ and $V_2$, $f : V_1 \rightarrow V_2$, such that any two vertices $u$ and $v$ of $G_1$ are adjacent in $G_1$ if and only if the two vertices $f(u)$ and $f(v)$ of $G_2$ are adjacent in $G_2$.\\
+Given two graphs $G_1$ and $G_2$, the graph isomorphism problem is to decide whether $G_1$ and $G_2$ are isomorphic.\\
 It is easy to show that the graph isomorphism problem is in $NP$ because given a bijection $f$ as a certificate, we can easily check whether the certificate is valid in polynomial time.\\
 However, it has been an open problem whether the graph isomorphism problem is in $P$ or in $NPC$. Recently Babai has made significant progress by providing a so-called \enquote{quasipolynomial- time} algorithm for this problem (you may find it in the following manuscript). The manuscript has been submitted to the 48th Annual Symposium on the Theory of Computing (STOC 2016) for review and the result will be known soon.\\
-Graph Isomorphism in Quasipolynomial Time, L. Babai, arXiv:1512.03547, 2016.\\In this exercise, we are considering a \enquote{slightly different} problem, called subgraph isomorphism. Recall that a graph $G\textprime$ is a subgraph of another graph $G$ if every vertex of $G\textprime$ is in $G$ and every edge of $G\textprime$ is also in $G$.\\
+Graph Isomorphism in Quasipolynomial Time, L. Babai, arXiv:1512.03547, 2016.\\
+In this exercise, we are considering a \enquote{slightly different} problem, called subgraph isomorphism. Recall that a graph $G\textprime$ is a subgraph of another graph $G$ if every vertex of $G\textprime$ is in $G$ and every edge of $G\textprime$ is also in $G$.\\
+
 Given two graphs $G_1$ and $G_2$, the subgraph isomorphism problem is to decide whether $G_2$ contains a subgraph $G\textprime$ that is isomorphic to $G_1$.\\
+
 Prove that the subgraph isomorphism problem is NP-Complete.\\
+
 \textbf{Note:} I will send you a hint about this problem on Monday. You may try to work on it before that.\\
 
-Let $G_1$ be a graph and let $G_{1_k}$ be a Clique that is a subgraph of $G_1$ with $k$ vertices. We know that to find out if such a subgraph exists or not is an NP-Complete problem.\\
+Consider a graph $G$ and an integer $k$. The Clique problem is to find $G_k$, a subgraph of $G$, such that every node in $G_k$, has an edge connecting it to every other node in $G_k$.\\
 
-We can now reduce the Clique problem to the subgraph isomorphism problem. Construct a graph $G_2$ which has the same number of vertices as $G_1$ and the same edges between its corresponding vertices as $G_1$. The graphs $G_1$ and $G_2$ will be equivalent. Construct a $G_2$ subgraph $G\textprime$ that is equivalent to the clique $G_{1_k}$. Consider any two vertices in  $G\textprime$. Since $G\textprime$ is a Clique, the two vertices will be adjacent. The corresponding two vertices in Clique $G_{1_k}$ which is a subgraph of $G_1$ will also be adjacent. Consider any two vertices in $G_{1_k}$. They will be adjacent and the corresponding vertices in $G\textprime$, which is a subgraph of $G_2$ will also be adjacent. So we have shown that $G_2$ contains a subgraph $G\textprime$ that is isomorphic to $G_1$.
+Convert an instance of the Clique problem to a specific instance of the subgraph isomorphism problem with graphs $G$ and $G_k$, where $G_k$ is the complete graph; i.e. $(G, k) \rightarrow (G, G_k)$. This can easily be done in polynomial time.\\ 
 
-The reduction from a Clique to a subgraph isomorphism problem can be done in time $O(\left | V \right | + \left | E \right| )$ where $V$ and $E$ are the vertex set and edge set of graph $G_1$. This is polynomial time.
+Any subgraph of $G_k$ will be a complete graph. Since every node of $G_k$ will be connected by an edge to every other node, the same will be the case with its subgraph. In this special case of subgraph isomorphism $(G, G_k)$, whenever a node connects two edges in a subgraph of $G_k$, the corresponding edges in $G$ will also be connected. The reason is that $G_k$ is a subgraph of $G$. Also, whenever two nodes in $G$ are connected by an edge, if these nodes exist in the subgraph of $G_k$, they will also be connected. So we have shown that if there exists a k-Clique in $G$, then there exists a subgraph in the special case of $(G, G_k)$, where the subgraph of $G_k$ is isomorphic to $G$ (the subgraph isomorphism case exists).\\
 
+On the other hand if $G$ has a complete graph $G_k$ as a subgraph, then $G_k$ has to be a Clique.\\
+
+Given a certificate for the special instance of the subgraph isomorphism problem, $(G, G_k)$, or for that matter any instance of the subgraph isomorphism problem, it is can be easily verified in $O(n^2)$ time where $n$ is the number of subgraph vertices, or in polynomial time, that the instance is correct. Given this and the fact that a Clique instance can be reduced to a subgraph isomorphism instance in polynomial time, and knowing that finding a Clique is an NP-Complete problem, we can conclude that finding an instance of the subgraph isomorphism problem is NP-Complete. 
 \end{enumerate}
 
 %----------------------------------------------------------------------------------------
